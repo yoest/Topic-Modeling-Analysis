@@ -10,8 +10,10 @@
 
 ### In Progress
 
-- See the impact of the number of keywords choosen for the Doc2Vec-based model with spaCy and how this number varies with each datasets.
-- Evaluate the performances of the Lbl2Vec model.
+- Try to answer to this question: **Why are the F1 scores so bad?**. Possible explanation:
+    - Choice of keywords at the first step not appropriate to find the classes?
+    - Choice of embeddings?
+- Create a super simple benchmark dataset with 2-3 classes to make an in-depth analysis of the keywords.
 
 ### Done
 
@@ -21,3 +23,5 @@
 - ~~Understand why the basic Lbl2Vec model is random and how to choose the number of iterations to compute an average.~~
 - ~~Get informations about how spaCy similarity works.~~
 - ~~Observe the probability of assigning a document to a class.~~
+- ~~See the impact of the number of keywords choosen for the Doc2Vec-based model with spaCy and how this number varies with each datasets.~~
+- ~~Evaluate the performances of the Lbl2Vec model.~~
