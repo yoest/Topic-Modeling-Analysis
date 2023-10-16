@@ -1,6 +1,6 @@
 class_name,class_index,class_keywords
-business,0,business
-sport,1,sport
+tech,0,technology
+politics,1,politics
 entertainment,2,entertainment
-tech,3,technology
-politics,4,politics
+sport,3,sport
+business,4,business

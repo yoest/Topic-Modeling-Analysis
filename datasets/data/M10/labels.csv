@@ -1,11 +1,11 @@
 class_name,class_index,class_keywords
-2,0,archaeology
-3,1,computer science
-4,2,financial economics
-0,3,agriculture
-7,4,petroleum chemistry
+0,0,agriculture
+5,1,industrial engineering
+1,2,biology
+7,3,petroleum chemistry
+4,4,financial economics
 9,5,social science
-1,6,biology
-8,7,physics
-6,8,material science
-5,9,industrial engineering
+6,6,material science
+3,7,computer science
+2,8,archaeology
+8,9,physics

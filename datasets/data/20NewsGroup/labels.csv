@@ -1,21 +1,21 @@
 class_name,class_index,class_keywords
-rec.motorcycles,0,motorcycles
-sci.space,1,space
-talk.religion.misc,2,religion
+sci.med,0,medicine
+misc.forsale,1,for sale
+rec.sport.baseball,2,baseball
 comp.graphics,3,computer graphics
-soc.religion.christian,4,christianity
-comp.sys.mac.hardware,5,mac hardware
-rec.sport.hockey,6,hockey
-rec.sport.baseball,7,baseball
-comp.sys.ibm.pc.hardware,8,pc hardware
-misc.forsale,9,for sale
-rec.autos,10,cars
-sci.electronics,11,electronics
-comp.os.ms-windows.misc,12,windows
-sci.med,13,medicine
-sci.crypt,14,cryptography
-talk.politics.mideast,15,middle east
-comp.windows.x,16,windows x
-alt.atheism,17,atheism
-talk.politics.misc,18,politics
-talk.politics.guns,19,guns
+talk.politics.guns,4,guns
+talk.politics.misc,5,politics
+alt.atheism,6,atheism
+sci.crypt,7,cryptography
+comp.os.ms-windows.misc,8,windows
+comp.sys.mac.hardware,9,mac hardware
+rec.sport.hockey,10,hockey
+rec.autos,11,cars
+rec.motorcycles,12,motorcycles
+sci.electronics,13,electronics
+comp.windows.x,14,windows x
+talk.religion.misc,15,religion
+sci.space,16,space
+comp.sys.ibm.pc.hardware,17,pc hardware
+talk.politics.mideast,18,middle east
+soc.religion.christian,19,christianity
