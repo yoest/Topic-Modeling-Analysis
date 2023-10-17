@@ -26,8 +26,8 @@ class DaCluDeK:
                  load_cache: bool = False,
                  save_cache: bool = False,
                  verbose: bool = True) -> None:
-        self.defined_keywords = defined_keywords
-        self.train_documents = train_documents
+        self.defined_keywords = defined_keywords.copy()
+        self.train_documents = train_documents.copy()
         self.embedding_model_name = embedding_model_name
         self.dimensionality_reduction_model_name = dimensionality_reduction_model_name
         self.dimensionality_reduction_n_components = dimensionality_reduction_n_components
