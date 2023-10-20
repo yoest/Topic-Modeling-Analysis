@@ -2,7 +2,7 @@
 
 ## Topic Clustering
 
-- See the assignment confidence of Lbl2Vec and put that in relation with the wrong prediction. Is the model always confident on wrong prediction ? Are we able to detect the data point that will be problematic ?
+- **See the assignment confidence of Lbl2Vec and put that in relation with the wrong prediction. Is the model always confident on wrong prediction ? Are we able to detect the data point that will be problematic ?**
 
 ## Topic Modelling
 
@@ -15,4 +15,4 @@
 
 ## Misc
 
-- Create a flow of idea globally (i.e. add questions ?) to better understand questions that I had and why did I try one thing or another
+- **Create a flow of idea globally (i.e. add questions ?) to better understand questions that I had and why did I try one thing or another**
