@@ -12,7 +12,3 @@
     - Are there other dimensionality reduction methods than UMAP that can be used ?
     - Are there other clustering methods than HDBSCAN that can be used ?
 - vONTSS ?
-
-## Misc
-
-- **Create a flow of idea globally (i.e. add questions ?) to better understand questions that I had and why did I try one thing or another**
