@@ -1,5 +1,5 @@
 class_name,class_index,class_keywords
-3,0,data mining
-2,1,computer vision
-0,2,database
-1,3,artificial intelligence
+1,0,artificial intelligence
+0,1,database
+2,2,computer vision
+3,3,data mining

@@ -1,21 +1,21 @@
 class_name,class_index,class_keywords
-sci.med,0,medicine
-misc.forsale,1,for sale
-rec.sport.baseball,2,baseball
-comp.graphics,3,computer graphics
-talk.politics.guns,4,guns
-talk.politics.misc,5,politics
-alt.atheism,6,atheism
-sci.crypt,7,cryptography
-comp.os.ms-windows.misc,8,windows
-comp.sys.mac.hardware,9,mac hardware
-rec.sport.hockey,10,hockey
-rec.autos,11,cars
-rec.motorcycles,12,motorcycles
-sci.electronics,13,electronics
-comp.windows.x,14,windows x
-talk.religion.misc,15,religion
-sci.space,16,space
-comp.sys.ibm.pc.hardware,17,pc hardware
-talk.politics.mideast,18,middle east
-soc.religion.christian,19,christianity
+soc.religion.christian,0,religion christianism
+rec.sport.hockey,1,sport hockey
+sci.space,2,science space
+comp.os.ms-windows.misc,3,computer operating systems microsoft windows
+comp.graphics,4,computer graphics
+comp.sys.mac.hardware,5,computer systems mac hardware
+rec.motorcycles,6,motorcycles
+comp.sys.ibm.pc.hardware,7,computer systems ibm pc hardware
+talk.politics.guns,8,politics guns
+sci.electronics,9,science electronics
+talk.politics.misc,10,politics miscellaneous
+rec.sport.baseball,11,sport baseball
+talk.religion.misc,12,religion miscellaneous
+sci.crypt,13,science cryptography
+alt.atheism,14,atheism
+talk.politics.mideast,15,politics middle east
+sci.med,16,science medicine
+rec.autos,17,automobiles
+comp.windows.x,18,computer windows x
+misc.forsale,19,miscellaneous for sale
