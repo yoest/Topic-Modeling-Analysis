@@ -1,0 +1,4 @@
+,F1 score,Model
+0,0.7412953462851314,LDA
+1,0.61,Lbl2Vec
+2,0.2,Random
