@@ -368,7 +368,7 @@ class TopicModel:
             self.optimizer.step()
             self.scheduler.step()
 
-        print(total_nll/length, total_kld/length)
+        #print(total_nll/length, total_kld/length)
 
     def fit_transform(self, dataset, index = []):
         self.dataset = dataset
@@ -379,7 +379,7 @@ class TopicModel:
             index_words = [[self.tp.word_to_index[word] for word in ind if word in self.tp.word_to_index] for ind in index]
         else:
             index_words = None
-        print(index_words)
+        #print(index_words)
         #print(bag_of_words.shape)
         # rest of your initialization code here
         layer = bag_of_words.shape[1]//16
@@ -392,7 +392,7 @@ class TopicModel:
 
         glove_vectors = gensim.downloader.load('glove-wiki-gigaword-100')
         embed = np.asarray([glove_vectors[self.tp.index_to_word[i]] if  self.tp.index_to_word[i] in glove_vectors else np.asarray([1]*100) for i in self.tp.index_to_word ])
-        print(embed.shape)
+        #print(embed.shape)
         embedding.weight = torch.nn.Parameter(torch.from_numpy(embed).float())
         embedding.weight.requires_grad=True
 

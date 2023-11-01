@@ -23,10 +23,10 @@ class TextProcessor:
         self.word_to_index = None
         self.index_to_word = None
         self.lemmatized_sentences = None
-        nltk.download('punkt')
-        nltk.download('wordnet')
-        nltk.download('averaged_perceptron_tagger')
-        nltk.download('stopwords')
+        nltk.download('punkt', quiet=True)
+        nltk.download('wordnet', quiet=True)
+        nltk.download('averaged_perceptron_tagger', quiet=True)
+        nltk.download('stopwords', quiet=True)
 
     def __str__(self):
         """String representation of TextProcessor"""
@@ -135,7 +135,7 @@ class TextProcessor:
         #print(results)
         self.lemmatized_sentences = [j for i in results for j in i]
         
-        print(len(results), len(results[0]))
+        #print(len(results), len(results[0]))
 
     def process(self):
         self.lemmatize_sentences()
