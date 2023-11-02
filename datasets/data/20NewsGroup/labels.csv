@@ -1,21 +1,21 @@
 class_name,class_index,class_keywords
-soc.religion.christian,0,religion christianism
-rec.sport.hockey,1,sport hockey
-sci.space,2,science space
-comp.os.ms-windows.misc,3,computer operating systems microsoft windows
-comp.graphics,4,computer graphics
-comp.sys.mac.hardware,5,computer systems mac hardware
-rec.motorcycles,6,motorcycles
-comp.sys.ibm.pc.hardware,7,computer systems ibm pc hardware
-talk.politics.guns,8,politics guns
-sci.electronics,9,science electronics
-talk.politics.misc,10,politics miscellaneous
-rec.sport.baseball,11,sport baseball
-talk.religion.misc,12,religion miscellaneous
-sci.crypt,13,science cryptography
-alt.atheism,14,atheism
-talk.politics.mideast,15,politics middle east
-sci.med,16,science medicine
-rec.autos,17,automobiles
-comp.windows.x,18,computer windows x
-misc.forsale,19,miscellaneous for sale
+sci.crypt,0,science cryptography
+comp.graphics,1,computer graphics
+comp.windows.x,2,computer windows x
+talk.politics.mideast,3,politics middle east
+comp.sys.ibm.pc.hardware,4,computer systems ibm pc hardware
+talk.religion.misc,5,religion miscellaneous
+alt.atheism,6,atheism
+misc.forsale,7,miscellaneous for sale
+rec.sport.baseball,8,sport baseball
+sci.med,9,science medicine
+comp.sys.mac.hardware,10,computer systems mac hardware
+talk.politics.guns,11,politics guns
+comp.os.ms-windows.misc,12,computer operating systems microsoft windows
+rec.autos,13,automobiles
+sci.electronics,14,science electronics
+soc.religion.christian,15,religion christianism
+sci.space,16,science space
+rec.sport.hockey,17,sport hockey
+talk.politics.misc,18,politics miscellaneous
+rec.motorcycles,19,motorcycles

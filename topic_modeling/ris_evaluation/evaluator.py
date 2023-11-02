@@ -3,6 +3,8 @@ from octis.evaluation_metrics.diversity_metrics import TopicDiversity
 
 import pandas as pd
 
+from scipy.optimize import linear_sum_assignment
+
 
 class Evaluator:
 
@@ -41,6 +43,53 @@ class Evaluator:
         diversity = TopicDiversity()
         return diversity.score(self.model_output)
     
+    def __compute_similarity(self, true_words: list, extracted_words: list) -> float:
+        """ Compute the similarity between two topics
+
+        Args:
+            true_words (list): The words of the true topic
+            extracted_words (list): The words of the extracted topic
+
+        Returns:
+            float: The similarity between the two topics
+        """
+        similarity = 0
+        total_count = 0
+
+        for extracted_word, extracted_word_count in extracted_words:
+            same_word_true_count = 0
+            for true_word, true_word_count in true_words:
+                if true_word == extracted_word:
+                    same_word_true_count = true_word_count
+                    break
+
+            current_similarity = 1 - abs((extracted_word_count - same_word_true_count) / max(extracted_word_count, same_word_true_count))
+            current_similarity *= (extracted_word_count + same_word_true_count)
+            similarity += current_similarity
+
+            total_count += extracted_word_count + same_word_true_count
+
+        return similarity / total_count
+    
+    def __compute_similarity_matrix(self, words_by_extracted_topics: dict, words_by_true_topics: dict) -> list:
+        """ Compute the similarity matrix between each topic
+
+        Args:
+            words_by_extracted_topics (dict): The words for each extracted topic
+            words_by_true_topics (dict): The words for each true topic
+
+        Returns:
+            list: The similarity matrix
+        """
+        similarity_matrix = []
+        for _, extracted_topic in enumerate(words_by_extracted_topics):
+            row = []
+            for _, true_topic in enumerate(words_by_true_topics):
+                row.append(self.__compute_similarity(words_by_true_topics[true_topic], words_by_extracted_topics[extracted_topic]))
+            similarity_matrix.append(row)
+
+        return similarity_matrix
+    
     def compute_supervised_correlation(self, words_by_extracted_topics: dict, words_by_class: dict) -> float:
         """ Compute the supervised correlation between the words of the extracted topics and the words of the classes.
 
@@ -51,22 +100,27 @@ class Evaluator:
         Returns:
             float: The supervised correlation between the words of the extracted topics and the words of the classes.
         """
-        avg_scores = []
+        new_words_by_extracted_topics = {}
+        for key in words_by_extracted_topics:
+            new_words_by_extracted_topics[key] = list(words_by_extracted_topics[key].items())
 
-        for extracted_topic in words_by_extracted_topics.keys():
-            highest_score = []
+        new_words_by_class = {}
+        for key in words_by_class:
+            new_words_by_class[key] = list(words_by_class[key].items())
 
-            for class_name in words_by_class.keys():
-                words_for_extracted_topic = words_by_extracted_topics[extracted_topic]
-                words_for_class = words_by_class[class_name]
+        similarity_matrix = self.__compute_similarity_matrix(new_words_by_extracted_topics, new_words_by_class)
 
-                score = self.__compute_single_correlation(words_for_extracted_topic, words_for_class)
-                highest_score.append(score)
+        row_indices, col_indices = linear_sum_assignment(similarity_matrix, maximize=True)
 
-            highest_score = max(highest_score)
-            avg_scores.append(highest_score)
+        true_topic_labels = list(new_words_by_class.keys())
 
-        return sum(avg_scores) / len(avg_scores)
+        assignment_similarity = {}
+
+        for extracted_topic_idx, true_topic_idx in zip(row_indices, col_indices):
+            assignment_similarity[true_topic_labels[true_topic_idx]] = similarity_matrix[true_topic_idx][extracted_topic_idx]
+
+        supervised_correlation = sum(assignment_similarity.values()) / len(assignment_similarity.values())
+        return supervised_correlation
 
         
     def __compute_single_correlation(self, words_for_extracted_topic: dict, words_for_class: dict) -> float:
