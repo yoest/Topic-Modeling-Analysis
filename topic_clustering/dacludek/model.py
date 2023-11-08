@@ -6,8 +6,10 @@ import os
 from gensim.models import Doc2Vec
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from sentence_transformers import SentenceTransformer
+from gensim.utils import simple_preprocess
 
 from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE
 from sklearn.neighbors import LocalOutlierFactor
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 
@@ -209,11 +211,10 @@ class DaCluDeK:
     def load_embeddings_model(self):
         """ Loads the embeddings model. """
         if self.embedding_model_name == 'Doc2Vec':
-            train_tagged_documents = [TaggedDocument(doc, [i]) for i, doc in enumerate(self.train_documents)]
+            train_tagged_documents = [TaggedDocument(simple_preprocess(doc), [i]) for i, doc in enumerate(self.train_documents)]
 
             doc2vec_args = {
                 'documents': train_tagged_documents,
-                'vector_size': self.dimensionality_reduction_n_components if self.dimensionality_reduction_n_components != -1 else 300,
                 'window': 2,
                 'min_count': 1,
                 'workers': 4,
@@ -225,6 +226,13 @@ class DaCluDeK:
                 'dbow_words': 1
             }
             self.embedding_model = Doc2Vec(**doc2vec_args)
+
+            # These are not needed since the __init__ method is already doing this
+            # self.embedding_model.build_vocab(train_tagged_documents)
+            # self.embedding_model.train(train_tagged_documents, total_examples=self.embedding_model.corpus_count, epochs=self.embedding_model.epochs)
+
+            if self.dimensionality_reduction_model_name == 't-SNE':
+                self.dimensionality_reduction_model = TSNE(n_components=self.dimensionality_reduction_n_components, method='exact')
 
             # Redefine the keywords with words that it has seen during the training to avoid random embeddings
             spacy_similarity_keywords_df = self.__get_spacy_similarity_keywords_for_documents(self.train_documents)
@@ -251,7 +259,12 @@ class DaCluDeK:
             list: List of encoded documents.
         """
         if self.embedding_model_name == 'Doc2Vec':
-            return [self.embedding_model.infer_vector(doc.split(' ')).tolist() for doc in documents]
+            vectors = [self.embedding_model.infer_vector(doc.split(' ')).tolist() for doc in documents]
+
+            if self.dimensionality_reduction_model_name == 't-SNE':
+                return self.dimensionality_reduction_model.fit_transform(vectors)
+            
+            return vectors
         
         elif self.embedding_model_name == 'SentenceTransformer':
             if self.dimensionality_reduction_model_name == 'PCA':
