@@ -4,7 +4,7 @@ Code relating to work carried out during an internship at [Sinch](https://www.si
 
 ## Description
 
-Machine learning models require more and more data to be trained, particularly in the field of natural language processing (NLP). Manually labeling data takes up a considerable amount of time that could be devoted to a more useful task. One way of solving this problem is to use topic modeling to help us divide the data into clusters, and then label the data using these clusters as classes. This project evaluates several thematic modeling models such as LDA, [BERTopic](https://github.com/MaartenGr/BERTopic) and their guided version. It also presents results on unsupervised text classification.
+Machine learning models require more and more data to be trained, particularly in the field of natural language processing (NLP). Manually labeling data takes up a considerable amount of time that could be devoted to a more useful task. One way of solving this problem is to use topic modeling to help us divide the data into clusters, and then label the data using these clusters as classes. This project evaluates several topic modeling models such as LDA, [BERTopic](https://github.com/MaartenGr/BERTopic) and their guided version. It also presents results on unsupervised text classification.
 
 ## Getting Started
 
