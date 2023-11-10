@@ -1,6 +1,6 @@
-# Topic Modeling
+# Topic Modeling Analysis
 
-Code relating to work carried out during an internship at [Sinch] (https://www.sinch.com/), consisting of an analysis of current topic modeling models. The report associated to the code can be found, as named "report.pdf".
+Code relating to work carried out during an internship at [Sinch](https://www.sinch.com/), consisting of an analysis of current topic modeling models. The report associated to the code can be found, as named "report.pdf".
 
 ## Description
 
